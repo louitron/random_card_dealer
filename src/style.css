@@ -1,1 +1,103 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+body {
+  background-color: black;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3647f09a-5a82-4617-9b2e-c996e8c1b7ce/d7intx0-70f5b93f-487e-4712-a8ce-925bee9b2d35.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM2NDdmMDlhLTVhODItNDYxNy05YjJlLWM5OTZlOGMxYjdjZVwvZDdpbnR4MC03MGY1YjkzZi00ODdlLTQ3MTItYThjZS05MjViZWU5YjJkMzUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Aih9zA8zIP4culy-jkpdsC1DgKCm4_kwSh-oyRRqtXU");
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 120pt;
+}
+.card {
+  position: relative;
+  height: 80vh;
+  width: 60vh;
+  perspective: 800px;
+  cursor: pointer;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3647f09a-5a82-4617-9b2e-c996e8c1b7ce/d7intx0-70f5b93f-487e-4712-a8ce-925bee9b2d35.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM2NDdmMDlhLTVhODItNDYxNy05YjJlLWM5OTZlOGMxYjdjZVwvZDdpbnR4MC03MGY1YjkzZi00ODdlLTQ3MTItYThjZS05MjViZWU5YjJkMzUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Aih9zA8zIP4culy-jkpdsC1DgKCm4_kwSh-oyRRqtXU");
+  border: 0;
+  border-radius: 15px;
+  scale: 0.8;
+}
+
+.heart {
+  display: none;
+  color: red;
+}
+.spade {
+  display: contents;
+}
+.club {
+  display: none;
+}
+.diamond {
+  display: none;
+  color: red;
+}
+.top {
+  position: absolute;
+  font-size: 40pt;
+  padding-left: 10px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0px;
+  text-align: right;
+  width: 100%;
+  transform: scaleY(-1);
+  font-size: 40pt;
+  padding-right: 10px;
+}
+
+.inverted {
+  text-align: right;
+}
+
+.char {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80vh;
+  width: 60vh;
+  backface-visibility: hidden;
+  transition: transform 0.8s;
+  border-radius: 15px;
+}
+
+.card .front {
+  background-color: white;
+  transform: rotateY(0deg);
+}
+
+.card .back {
+  background-color: white;
+  transform: rotateY(-180deg);
+}
+
+.card.flip .front {
+  transform: rotateY(180deg);
+}
+
+.card.flip .back {
+  transform: rotateY(0deg);
+}
+
+html {
+  visibility: visible;
+  opacity: 1;
+}
