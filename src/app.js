@@ -2,55 +2,56 @@
 import "bootstrap";
 import "./style.css";
 
-const suites = [".heart", ".spade", ".club", ".diamond"];
-const cardValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-
 const genIndex = arr => {
   let index = Math.floor(Math.random() * arr.length);
   return index;
 };
-const eraseSuite = () => {
-  let heart = document.querySelector(".heart");
-  let spade = document.querySelector(".spade");
-  let club = document.querySelector(".club");
-  let diamond = document.querySelector(".diamond");
-  heart.style.display = "none";
-  spade.style.display = "none";
-  club.style.display = "none";
-  diamond.style.display = "none";
+// const eraseSuite = () => {
+//   let heart = document.querySelector(".heart");
+//   let spade = document.querySelector(".spade");
+//   let club = document.querySelector(".club");
+//   let diamond = document.querySelector(".diamond");
+//   heart.style.display = "none";
+//   spade.style.display = "none";
+//   club.style.display = "none";
+//   diamond.style.display = "none";
+// };
+
+const selectSuite = arr => {
+  let random = arr[genIndex(arr)];
+  let selector = document.querySelectorAll("p");
+  selector.forEach(p => {
+    if (random === "♥" || random === "♦") p.style.color = "red";
+    else p.style.color = "black";
+    p.innerHTML = random;
+  });
 };
 
-const selectSuite = () => {
-  let random = suites[genIndex(suites)];
-  let selector = document.querySelector(random);
-  selector.style.display = "contents";
+const onScreenChar = arr => {
+  let selector = document.querySelectorAll("h1");
+  let random = arr[genIndex(arr)];
+  selector.forEach(h1 => {
+    h1.innerHTML = random;
+  });
 };
 
-const onScreenChar = () => {
-  let selector = document.querySelector("h1");
-  let random = cardValue[genIndex(cardValue)];
-  selector.innerHTML = random;
-};
-
-const cardSelectFront = document.querySelector(".front");
-const cardSelectBack = document.querySelector(".back");
-
+const suites = ["♦", "♥", "♠", "♣"];
+const cardValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
 const card = document.getElementById("card");
-// const char = document.querySelector(".char");
+const cardFront = document.querySelector(".front");
+const cardBack = document.querySelector(".back");
 
 gsap.from(".card", { opacity: 0, duration: 1.6, x: -2000, ease: "power4.out" });
 
 window.onload = function() {
-  cardSelectFront.addEventListener("click", () => {
-    eraseSuite();
-    selectSuite();
-    onScreenChar();
+  cardFront.addEventListener("click", () => {
+    selectSuite(suites);
+    onScreenChar(cardValue);
   });
 
-  cardSelectBack.addEventListener("click", () => {
-    eraseSuite();
-    selectSuite();
-    onScreenChar();
+  cardBack.addEventListener("click", () => {
+    selectSuite(suites);
+    onScreenChar(cardValue);
   });
 
   card.addEventListener("click", () => {
