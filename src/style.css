@@ -2,6 +2,7 @@
 body {
   background-color: black;
   background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3647f09a-5a82-4617-9b2e-c996e8c1b7ce/d7intx0-70f5b93f-487e-4712-a8ce-925bee9b2d35.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM2NDdmMDlhLTVhODItNDYxNy05YjJlLWM5OTZlOGMxYjdjZVwvZDdpbnR4MC03MGY1YjkzZi00ODdlLTQ3MTItYThjZS05MjViZWU5YjJkMzUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Aih9zA8zIP4culy-jkpdsC1DgKCm4_kwSh-oyRRqtXU");
+  /* ALIGN CARD CENTER */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,9 +10,7 @@ body {
   justify-content: center;
 }
 
-h1 {
-  font-size: 120pt;
-}
+/* MAIN CARD STYLES */
 .card {
   position: relative;
   height: 80vh;
@@ -23,27 +22,11 @@ h1 {
   border-radius: 15px;
   scale: 0.8;
 }
-
-.heart {
-  display: none;
-  color: red;
-}
-.spade {
-  display: contents;
-}
-.club {
-  display: none;
-}
-.diamond {
-  display: none;
-  color: red;
-}
 .top {
   position: absolute;
   font-size: 80pt;
   padding-left: 10px;
 }
-
 .bottom {
   position: absolute;
   bottom: 0px;
@@ -54,10 +37,7 @@ h1 {
   padding-right: 10px;
 }
 
-.inverted {
-  text-align: right;
-}
-
+/* MAIN CHARACTER */
 .char {
   position: absolute;
   top: 50%;
@@ -66,7 +46,11 @@ h1 {
   width: 100%;
   text-align: center;
 }
+h1 {
+  font-size: 120pt;
+}
 
+/* CARD FLIP STYLES */
 .card .front,
 .card .back {
   position: absolute;
@@ -78,25 +62,22 @@ h1 {
   transition: transform 0.8s;
   border-radius: 15px;
 }
-
 .card .front {
   background-color: white;
   transform: rotateY(0deg);
 }
-
 .card .back {
   background-color: white;
   transform: rotateY(-180deg);
 }
-
 .card.flip .front {
   transform: rotateY(180deg);
 }
-
 .card.flip .back {
   transform: rotateY(0deg);
 }
 
+/* LEAVE THIS AT THE BOTTOM TO FIX FOUC */
 html {
   visibility: visible;
   opacity: 1;
