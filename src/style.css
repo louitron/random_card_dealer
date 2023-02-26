@@ -40,7 +40,7 @@ h1 {
 }
 .top {
   position: absolute;
-  font-size: 40pt;
+  font-size: 80pt;
   padding-left: 10px;
 }
 
@@ -50,7 +50,7 @@ h1 {
   text-align: right;
   width: 100%;
   transform: scaleY(-1);
-  font-size: 40pt;
+  font-size: 80pt;
   padding-right: 10px;
 }
 

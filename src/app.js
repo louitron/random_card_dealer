@@ -6,16 +6,6 @@ const genIndex = arr => {
   let index = Math.floor(Math.random() * arr.length);
   return index;
 };
-// const eraseSuite = () => {
-//   let heart = document.querySelector(".heart");
-//   let spade = document.querySelector(".spade");
-//   let club = document.querySelector(".club");
-//   let diamond = document.querySelector(".diamond");
-//   heart.style.display = "none";
-//   spade.style.display = "none";
-//   club.style.display = "none";
-//   diamond.style.display = "none";
-// };
 
 const selectSuite = arr => {
   let random = arr[genIndex(arr)];
@@ -41,17 +31,27 @@ const card = document.getElementById("card");
 const cardFront = document.querySelector(".front");
 const cardBack = document.querySelector(".back");
 
-gsap.from(".card", { opacity: 0, duration: 1.6, x: -2000, ease: "power4.out" });
+const generateCard = () => {
+  selectSuite(suites);
+  onScreenChar(cardValue);
+};
+
+gsap.from(".card", {
+  rotation: 720,
+  opacity: 0,
+  scale: 0.5,
+  duration: 1.6,
+  x: -3000,
+  ease: "power4.out"
+});
 
 window.onload = function() {
   cardFront.addEventListener("click", () => {
-    selectSuite(suites);
-    onScreenChar(cardValue);
+    setTimeout(generateCard, 300);
   });
 
   cardBack.addEventListener("click", () => {
-    selectSuite(suites);
-    onScreenChar(cardValue);
+    setTimeout(generateCard, 300);
   });
 
   card.addEventListener("click", () => {
