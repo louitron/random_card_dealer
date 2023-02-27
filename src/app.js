@@ -36,12 +36,20 @@ const generateCard = () => {
   onScreenChar(cardValue);
 };
 
+//Animation
 gsap.from(".card", {
   rotation: 720,
   opacity: 0,
   scale: 0.5,
   duration: 1.6,
   x: -3000,
+  ease: "power4.out"
+});
+gsap.from(".banner", {
+  opacity: 0,
+  scale: 0,
+  duration: 1,
+  delay: 1.6,
   ease: "power4.out"
 });
 
